@@ -1,7 +1,8 @@
+window.onload=(){
 function showTime() {
-  var canvas = document.querySelector('#canvas');
-  var context = canvas.getContext('2d');
-  var clockRadius = canvas.width / 2;
+  let canvas = document.querySelector('#canvas');
+  let context = canvas.getContext('2d');
+  let clockRadius = canvas.width / 2;
   context.fillStyle = 'rgb(111, 48, 21)';
 
   context.beginPath();
@@ -17,13 +18,13 @@ function showTime() {
     context.fillText(i, clockRadius - clockRadius / 20 + clockRadius * 0.9 * Math.sin(i * 2 * Math.PI / 12), clockRadius - clockRadius * 0.9 * Math.cos(i * 2 * Math.PI / 12));
   }
 
-  var hours = new Date().getHours();
-  var minutes = new Date().getMinutes();
-  var seconds = new Date().getSeconds();
-  var hour = hours % 12 + minutes / 60 + seconds / 3600;
-  var hourAngle = hour * 2 * Math.PI / 12;
-  var minuteAngle = minutes * 2 * Math.PI / 60;
-  var secondAngle = seconds * 2 * Math.PI / 60;
+  let hours = new Date().getHours();
+  let minutes = new Date().getMinutes();
+  let seconds = new Date().getSeconds();
+  let hour = hours % 12 + minutes / 60 + seconds / 3600;
+  let hourAngle = hour * 2 * Math.PI / 12;
+  let minuteAngle = minutes * 2 * Math.PI / 60;
+  let secondAngle = seconds * 2 * Math.PI / 60;
   context.strokeStyle = 'rgb(181, 189, 184)';
   context.moveTo(clockRadius, clockRadius);
   context.lineTo(clockRadius + clockRadius * 0.5 * Math.sin(hourAngle), clockRadius - clockRadius * 0.5 * Math.cos(hourAngle));
@@ -41,3 +42,4 @@ function showTime() {
 }
 
 setInterval(showTime, 1000);
+}
